@@ -420,6 +420,9 @@ var inptSel = function () {
       // If normal browser
       if (el.setSelectionRange) {
         el.focus();
+        if (el !== document.activeElement) {
+          return;
+        }
         el.setSelectionRange(pos.begin, pos.end);
       } else if (el.createTextRange) {
         var range = el.createTextRange();

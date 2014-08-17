@@ -71,6 +71,7 @@ inptSel.set = function (el, pos) {
   // If normal browser
   if (el.setSelectionRange) {
     el.focus();
+    if (el !== document.activeElement) { return; }
     el.setSelectionRange(pos.begin, pos.end);
 
   // IE = TextRange fun
@@ -86,5 +87,6 @@ inptSel.set = function (el, pos) {
 
 // Expose
 module.exports = inptSel;
+
 
 
